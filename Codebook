@@ -5,24 +5,118 @@ http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartpho
  The data for the project:
 https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 
-•The run_analysis.R script performs the following steps to clean the data:
-i.Read X_train.txt, y_train.txt and subject_train.txt from the "./data/train" folder and store them in trainData, trainLabel and trainSubject variables respectively.
+Subject: the integer subject ID.
+Activity: the string activity name:
+Walking
+Walking Upstairs
+Walking Downstairs
+Sitting
+Standing
+Laying
+Measurement Means
 
-ii.Read X_test.txt, y_test.txt and subject_test.txt from the "./data/test" folder and store them in testData, testLabel and testsubject variables respectively.
+All variables are the mean of a measurement for each subject and activity. This is indicated by the initial Mean in the variable name. All values are floating point numbers.
 
-iii.Concatenate testData to trainData to generate a 10299x561 data frame, joinData; concatenate testLabel to trainLabel to generate a 10299x1 data frame, joinLabel; concatenate testSubject to trainSubject to generate a 10299x1 data frame, joinSubject.
-
-iv.Read the features.txt file from the "/data" folder and store the data in a variable called features. We only extract the measurements on the mean and standard deviation. This results in a 66 indices list. We get a subset of joinData with the 66 corresponding columns.
-
-v.Clean the column names of the subset. We remove the "()" and "-" symbols in the names, as well as make the first letter of "mean" and "std" a capital letter "M" and "S" respectively.
-
-vi.Read the activity_labels.txt file from the "./data"" folder and store the data in a variable called activity.
-
-vii.Clean the activity names in the second column of activity. We first make all names to lower cases. If the name has an underscore between letters, we remove the underscore and capitalize the letter immediately after the underscore.
-
-viii.Transform the values of joinLabel according to the activity data frame.
-
-ix.Combine the joinSubject, joinLabel and joinData by column to get a new cleaned data frame, cleanedData. 
+Time domain body acceleration mean along X, Y, and Z:
+MeanTimeBodyAccMeanX
+MeanTimeBodyAccMeanY
+MeanTimeBodyAccMeanZ
+Time domain body acceleration standard deviation along X, Y, and Z:
+MeanTimeBodyAccStdDevX
+MeanTimeBodyAccStdDevY
+MeanTimeBodyAccStdDevZ
+Time domain gravity acceleration mean along X, Y, and Z:
+MeanTimeGravityAccMeanX
+MeanTimeGravityAccMeanY
+MeanTimeGravityAccMeanZ
+Time domain gravity acceleration standard deviation along X, Y, and Z:
+MeanTimeGravityAccStdDevX
+MeanTimeGravityAccStdDevY
+MeanTimeGravityAccStdDevZ
+Time domain body jerk mean along X, Y, and Z:
+MeanTimeBodyAccJerkMeanX
+MeanTimeBodyAccJerkMeanY
+MeanTimeBodyAccJerkMeanZ
+Time domain body jerk standard deviation along X, Y, and Z:
+MeanTimeBodyAccJerkStdDevX
+MeanTimeBodyAccJerkStdDevY
+MeanTimeBodyAccJerkStdDevZ
+Time domain gyroscope mean along X, Y, and Z:
+MeanTimeBodyGyroMeanX
+MeanTimeBodyGyroMeanY
+MeanTimeBodyGyroMeanZ
+Time domain gyroscope standard deviation along X, Y, and Z:
+MeanTimeBodyGyroStdDevX
+MeanTimeBodyGyroStdDevY
+MeanTimeBodyGyroStdDevZ
+Time domain gyroscope jerk mean along X, Y, and Z:
+MeanTimeBodyGyroJerkMeanX
+MeanTimeBodyGyroJerkMeanY
+MeanTimeBodyGyroJerkMeanZ
+Time domain gyroscope jerk standard deviation along X, Y, and Z:
+MeanTimeBodyGyroJerkStdDevX
+MeanTimeBodyGyroJerkStdDevY
+MeanTimeBodyGyroJerkStdDevZ
+Time domain body acceleration magnitude mean:
+MeanTimeBodyAccMagMean
+Time domain body acceleration magnitude standard deviation:
+MeanTimeBodyAccMagStdDev
+Time domain gravity acceleration magnitude mean:
+MeanTimeGravityAccMagMean
+Time domain gravity acceleration magnitude standard deviation:
+MeanTimeGravityAccMagStdDev
+Time domain body jerk magnitude mean:
+MeanTimeBodyAccJerkMagMean
+Time domain body jerk magnitude standard deviation:
+MeanTimeBodyAccJerkMagStdDev
+Time domain gyroscope magnitude mean:
+MeanTimeBodyGyroMagMean
+Time domain gyroscope magnitude standard deviation:
+MeanTimeBodyGyroMagStdDev
+Time domain gyroscope jerk magnitude mean:
+MeanTimeBodyGyroJerkMagMean
+Time domain gyroscope jerk magnitude standard deviation:
+MeanTimeBodyGyroJerkMagStdDev
+Frequency domain body acceleration mean along X, Y, and Z:
+MeanFrequencyBodyAccMeanX
+MeanFrequencyBodyAccMeanY
+MeanFrequencyBodyAccMeanZ
+Frequency domain body acceleration standard deviation along X, Y, and Z:
+MeanFrequencyBodyAccStdDevX
+MeanFrequencyBodyAccStdDevY
+MeanFrequencyBodyAccStdDevZ
+Frequency domain body jerk mean along X, Y, and Z:
+MeanFrequencyBodyAccJerkMeanX
+MeanFrequencyBodyAccJerkMeanY
+MeanFrequencyBodyAccJerkMeanZ
+Frequency domain body jerk standard deviation along X, Y, and Z:
+MeanFrequencyBodyAccJerkStdDevX
+MeanFrequencyBodyAccJerkStdDevY
+MeanFrequencyBodyAccJerkStdDevZ
+Frequency domain gyroscope mean along X, Y, and Z:
+MeanFrequencyBodyGyroMeanX
+MeanFrequencyBodyGyroMeanY
+MeanFrequencyBodyGyroMeanZ
+Frequency domain gyroscope standard deviation along X, Y, and Z:
+MeanFrequencyBodyGyroStdDevX
+MeanFrequencyBodyGyroStdDevY
+MeanFrequencyBodyGyroStdDevZ
+Frequency domain body acceleration magnitude mean:
+MeanFrequencyBodyAccMagMean
+Frequency domain body acceleration magnitude standard deviation:
+MeanFrequencyBodyAccMagStdDev
+Frequency domain body jerk magnitude mean:
+MeanFrequencyBodyAccJerkMagMean
+Frequency domain body jerk magnitude standard deviation:
+MeanFrequencyBodyAccJerkMagStdDev
+Frequency domain gyroscope magnitude mean:
+MeanFrequencyBodyGyroMagMean
+Frequency domain gyroscope magnitude standard deviation:
+MeanFrequencyBodyGyroMagStdDev
+Frequency domain gyroscope jerk magnitude mean:
+MeanFrequencyBodyGyroJerkMagMean
+Frequency domain gyroscope jerk magnitude standard deviation:
+MeanFrequencyBodyGyroJerkMagStdDev
 
 x.Write the cleanedData out to "merged_data.txt" file in current working directory.
 
