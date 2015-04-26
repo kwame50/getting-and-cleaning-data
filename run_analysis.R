@@ -58,15 +58,15 @@ subject <- joinSubject
 
 # Step4. Appropriately labels the data set with descriptive activity  
 # names.
-Xcombined <- cbind(Xmeanstd, activities, joinSubject)
+Xcombined <- cbind(Xmeanstd, activities)
 Xmelt <- melt(Xcombined,
-              id=c("activities", "subject"),
+              id=c("activities"),
               measure.vars=names(Xmeanstd))
-Xtidy <- dcast(Xmelt, activities + subject ~ variable, mean)
+Xtidy <- dcast(Xmelt, activities ~ variable, mean)
 
 # Step5. Creates a second, independent tidy data set with the average of  
 # each variable for each activity and each subject.  
 write.table(Xtidy,
-            "tidy.csv",
+            "tidy.txt",
             sep=",",
             row.names=FALSE) 
