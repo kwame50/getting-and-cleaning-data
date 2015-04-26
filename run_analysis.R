@@ -41,13 +41,13 @@ feature <- featureNames
 names(features) <- c("colnum", "name")
 
 # feature names with mean/std in the name
-fmean <- grepl("mean()", featuresNames)  # TODO: does meanFreq() count as mean?
-fstd <- grepl("std()", featuresNames)
+fmean <- grepl("mean()", featureNames)  # TODO: does meanFreq() count as mean?
+fstd <- grepl("std()", featureNames)
 fkeep <- fmean | fstd
 
 # extract only mean/std columns, add variable names
-Xmeanstd <- X[, fkeep]
-names(Xmeanstd) <- featuresNames[fkeep]
+Xmeanstd <- joinData[, fkeep]
+names(Xmeanstd) <- featureNames[fkeep]
 
 # Step3. Uses descriptive activity names to name the activities in  
 # the data set 
