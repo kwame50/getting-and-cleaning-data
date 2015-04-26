@@ -54,14 +54,15 @@ names(Xmeanstd) <- featureNames[fkeep]
 activities <- factor(joinSubject, 
               levels=c(1, 2, 3, 4, 5, 6),
               labels=c("Walk", "Walk up stairs", "Walk down stairs", "Sit", "Stand", "Lay"))
+subject <- joinSubject              
 
 # Step4. Appropriately labels the data set with descriptive activity  
 # names.
 Xcombined <- cbind(Xmeanstd, activities, joinSubject)
 Xmelt <- melt(Xcombined,
-              id=c("act", "subject"),
+              id=c("activities", "subject"),
               measure.vars=names(Xmeanstd))
-Xtidy <- dcast(Xmelt, act + joinSubject ~ variable, mean)
+Xtidy <- dcast(Xmelt, activities + subject ~ variable, mean)
 
 # Step5. Creates a second, independent tidy data set with the average of  
 # each variable for each activity and each subject.  
